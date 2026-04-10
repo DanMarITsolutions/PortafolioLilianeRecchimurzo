@@ -227,17 +227,83 @@ footer{background:var(--cream);border-top:1px solid var(--red-line);padding:48px
   footer{flex-direction:column;align-items:flex-start;}
 }
 </style>
+<style>
+/* ── GALERÍA: contenedores fijos, imagen se adapta ── */
+
+/* imagen principal hero del proyecto */
+.proj-main-img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  display: block;
+}
+
+/* todos los items de galería tienen altura fija */
+.gallery-item {
+  overflow: hidden;
+  position: relative;
+  background: var(--cream-dark);
+}
+
+/* 2 columnas: altura media */
+.two-col .gallery-item {
+  height: 340px;
+}
+
+/* 3 columnas: altura un poco menor */
+.three-col .gallery-item {
+  height: 280px;
+}
+
+/* 1 columna: más panorámica */
+.one-col .gallery-item {
+  height: 440px;
+}
+
+/* la imagen SIEMPRE rellena su contenedor */
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.03);
+}
+
+/* caption fuera del contenedor */
+.img-caption {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .6rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  padding: 8px 0 16px;
+  display: block;
+}
+</style>
 </head>
 <body>
+
 <nav class="navbar scrolled">
   <a href="index.html" class="nav-logo">L.R.<span>Arquitectura · 2024/2025</span></a>
   <button class="nav-toggle"><span></span><span></span><span></span></button>
-  <ul class="nav-links"><li><a href="index.html">Inicio</a></li><li><a href="projects.html" class="active">Proyectos</a></li><li><a href="about.html">Sobre mí</a></li><li><a href="contact.html">Contacto</a></li></ul>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="projects.html" class="active">Proyectos</a></li>
+    <li><a href="about.html">Sobre mí</a></li>
+    <li><a href="contact.html">Contacto</a></li>
+  </ul>
 </nav>
 
 <header class="detail-hero">
   <div class="proj-number-bg">01</div>
-  <p class="detail-label"><a href="projects.html" style="color:inherit;border-bottom:1px solid var(--red-line);padding-bottom:2px;">← Proyectos</a> · Teatro · Equipamiento</p>
+  <p class="detail-label">
+    <a href="projects.html" style="color:inherit;border-bottom:1px solid var(--red-line);padding-bottom:2px;">← Proyectos</a>
+    · Teatro · Equipamiento
+  </p>
   <h1>TEATRO HAMBURGO<small>"Dejà Navigue"</small></h1>
   <div class="detail-meta-row">
     <div><p class="meta-key">Escuela</p><p class="meta-val">Politecnico di Milano</p></div>
@@ -247,46 +313,118 @@ footer{background:var(--cream);border-top:1px solid var(--red-line);padding:48px
   </div>
 </header>
 
+<!-- IMAGEN PRINCIPAL -->
 <div style="padding:32px 5% 0;" class="reveal">
-  <img src="images/teatro1.png" style="width:100%;aspect-ratio:21/9;"></div>
-  <p class="img-caption">Axonometría vista general</p>
+  <img src="images/teatro1.png" alt="Axonometría vista general Teatro Hamburgo" class="proj-main-img">
+  <span class="img-caption">Axonometría vista general</span>
 </div>
 
+<!-- CUERPO -->
 <section class="detail-body">
   <aside class="detail-sidebar">
-    <div class="sidebar-section"><h3>Emplazamiento</h3><p>Ribera del Elba, zona del Fishmarket<br>Hamburgo, Alemania</p></div>
-    <div class="sidebar-section"><h3>Programa</h3><ul><li>Teatro principal</li><li>Foyer circular</li><li>Academia de teatro</li><li>Museo panorámico</li><li>Espacios comerciales</li><li>Auditorio</li><li>Paseo fluvial público</li></ul></div>
-    <div class="sidebar-section"><h3>Estructura</h3><p>Reticular metálica. Vigas reticulares sobre núcleos de hormigón. Pilares metálicos expuestos.</p></div>
-    <div class="sidebar-section"><h3>Plantas</h3><ul><li>Planta –1 (Parking)</li><li>Planta Baja · Primera · Segunda</li><li>Planta Tercera · Cuarta</li></ul></div>
+    <div class="sidebar-section">
+      <h3>Emplazamiento</h3>
+      <p>Ribera del Elba, zona del Fishmarket<br>Hamburgo, Alemania</p>
+    </div>
+    <div class="sidebar-section">
+      <h3>Programa</h3>
+      <ul>
+        <li>Teatro principal</li>
+        <li>Foyer circular</li>
+        <li>Academia de teatro</li>
+        <li>Museo panorámico</li>
+        <li>Espacios comerciales</li>
+        <li>Auditorio</li>
+        <li>Paseo fluvial público</li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <h3>Estructura</h3>
+      <p>Reticular metálica. Vigas reticulares sobre núcleos de hormigón. Pilares metálicos expuestos.</p>
+    </div>
+    <div class="sidebar-section">
+      <h3>Plantas</h3>
+      <ul>
+        <li>Planta –1 (Parking)</li>
+        <li>Planta Baja · Primera · Segunda</li>
+        <li>Planta Tercera · Cuarta</li>
+      </ul>
+    </div>
   </aside>
+
   <div class="detail-main">
     <p class="description">El proyecto redefine el <strong>espacio teatral</strong> integrándolo en la ciudad a través de una estructura reticular metálica inspirada en el <strong>paisaje portuario de Hamburgo</strong>. Partimos del análisis de la evolución del teatro, desde su carácter efímero medieval hasta las grandes estructuras europeas del siglo XIX, seleccionando y reinterpretando sus elementos más significativos para crear un <em>teatro collage</em>.</p>
     <p class="description">Suspendidos y apoyados en la estructura, los volúmenes del teatro generan un nuevo paseo fluvial conectado al anillo verde de Hamburgo, revitalizando la zona del Fishmarket. El edificio se organiza en distintos niveles: en la planta baja, los accesos y un espacio de encuentro urbano; en los niveles superiores, el foyer, la torre escénica, el patio de butacas y las áreas de trabajo.</p>
-    <p class="description">En la parte más alta, un <strong>museo panorámico</strong> y la academia de teatro fortalecen su relación con la ciudad. La torre escénica, sostenida por vigas reticulares sobre núcleos de hormigón, conforma un teatro dinámico integrado al puerto donde <strong>arquitectura y ciudad se funden</strong> en una nueva experiencia escénica.</p>
+    <p class="description">En la parte más alta, un <strong>museo panorámico</strong> y la academia de teatro fortalecen su relación con la ciudad. La torre escénica conforma un teatro dinámico integrado al puerto donde <strong>arquitectura y ciudad se funden</strong> en una nueva experiencia escénica.</p>
   </div>
 </section>
 
-<section class="detail-gallery">
+<!-- GALERÍA -->
+<section class="detail-gallery" style="padding:0 5% 80px;">
   <p class="section-title">Documentación gráfica</p>
+
+  <!-- 2 imágenes lado a lado → cada una 340px de alto -->
   <div class="gallery-grid two-col">
-    <div><img src="images/teatro2.png" style="aspect-ratio:4/3;"></div><p class="img-caption">Fumetto sulla costruzione del teatro — sec. 1</p></div>
-    <div><img src="images/teatro3.png" style="aspect-ratio:4/3;filter:brightness(.88);"></div><p class="img-caption">Fumetto sulla costruzione del teatro — sec. 2</p></div>
+    <div class="gallery-item">
+      <img src="images/teatro2.png" alt="Fumetto sulla costruzione del teatro — secuencia 1">
+    </div>
+    <div class="gallery-item">
+      <img src="images/teatro3.png" alt="Fumetto sulla costruzione del teatro — secuencia 2">
+    </div>
   </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px;">
+    <span class="img-caption">Fumetto sulla costruzione — sec. 1</span>
+    <span class="img-caption">Fumetto sulla costruzione — sec. 2</span>
+  </div>
+
+  <!-- 1 imagen panorámica → 440px de alto -->
   <div class="gallery-grid one-col">
-    <div><div class="img-placeholder ph-01" style="aspect-ratio:21/9;filter:brightness(.9);"></div><p class="img-caption">Planta situación ámbito proyecto · Hamburgo</p></div>
+    <div class="gallery-item">
+      <img src="images/teatro4.png" alt="Planta situación ámbito proyecto Hamburgo">
+    </div>
   </div>
+  <span class="img-caption">Planta situación ámbito proyecto · Hamburgo</span>
+
+  <!-- 3 plantas → cada una 280px de alto -->
   <div class="gallery-grid three-col">
-    <div><div class="img-placeholder ph-01" style="aspect-ratio:1;filter:brightness(.85);"></div><p class="img-caption">Planta –1 · Parking</p></div>
-    <div><div class="img-placeholder ph-01" style="aspect-ratio:1;"></div><p class="img-caption">Planta Baja</p></div>
-    <div><div class="img-placeholder ph-01" style="aspect-ratio:1;filter:brightness(.9);"></div><p class="img-caption">Planta Primera</p></div>
+    <div class="gallery-item">
+      <img src="images/p01-planta-menos1.jpg" alt="Planta -1 Parking">
+    </div>
+    <div class="gallery-item">
+      <img src="images/p01-planta-baja.jpg" alt="Planta Baja">
+    </div>
+    <div class="gallery-item">
+      <img src="images/p01-planta-primera.jpg" alt="Planta Primera">
+    </div>
   </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;margin-bottom:2px;">
+    <span class="img-caption">Planta –1 · Parking</span>
+    <span class="img-caption">Planta Baja</span>
+    <span class="img-caption">Planta Primera</span>
+  </div>
+
+  <!-- 1 sección panorámica -->
   <div class="gallery-grid one-col">
-    <div><div class="img-placeholder ph-01" style="aspect-ratio:16/9;filter:brightness(.88);"></div><p class="img-caption">Sección longitudinal · E 1/500</p></div>
+    <div class="gallery-item">
+      <img src="images/p01-seccion-longitudinal.jpg" alt="Sección longitudinal E 1/500">
+    </div>
   </div>
+  <span class="img-caption">Sección longitudinal · E 1/500</span>
+
+  <!-- 2 imágenes lado a lado -->
   <div class="gallery-grid two-col">
-    <div><div class="img-placeholder ph-01" style="aspect-ratio:4/3;filter:brightness(.82);"></div><p class="img-caption">Sección transversal · E 1/500</p></div>
-    <div><div class="img-placeholder ph-01" style="aspect-ratio:4/3;filter:hue-rotate(5deg);"></div><p class="img-caption">Collage vista foyer</p></div>
+    <div class="gallery-item">
+      <img src="images/p01-seccion-transversal.jpg" alt="Sección transversal E 1/500">
+    </div>
+    <div class="gallery-item">
+      <img src="images/p01-collage-foyer.jpg" alt="Collage vista foyer">
+    </div>
   </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+    <span class="img-caption">Sección transversal · E 1/500</span>
+    <span class="img-caption">Collage vista foyer</span>
+  </div>
+
 </section>
 
 <nav style="padding:48px 5%;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;border-top:1px solid var(--red-line);">
@@ -294,7 +432,17 @@ footer{background:var(--cream);border-top:1px solid var(--red-line);padding:48px
   <a href="proyecto-02.html" class="btn btn-fill">Siguiente: Facultad UPO →</a>
 </nav>
 
-<footer><div><p class="footer-name">Liliane Recchimurzo</p><p class="footer-sub">Arquitectura · 2024/2025</p></div><ul class="footer-links"><li><a href="index.html">Inicio</a></li><li><a href="projects.html">Proyectos</a></li><li><a href="about.html">Sobre mí</a></li><li><a href="contact.html">Contacto</a></li></ul><p class="footer-copy">mlrecchimc6@gmail.com</p></footer>
+<footer>
+  <div><p class="footer-name">Liliane Recchimurzo</p><p class="footer-sub">Arquitectura · 2024/2025</p></div>
+  <ul class="footer-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="projects.html">Proyectos</a></li>
+    <li><a href="about.html">Sobre mí</a></li>
+    <li><a href="contact.html">Contacto</a></li>
+  </ul>
+  <p class="footer-copy">mlrecchimc6@gmail.com</p>
+</footer>
+
 <script>
 'use strict';
 const navbar=document.querySelector('.navbar');
@@ -319,4 +467,5 @@ const form=document.querySelector('.contact-form');
 if(form){form.addEventListener('submit',e=>{e.preventDefault();const btn=form.querySelector('button[type="submit"]');const orig=btn.textContent;btn.textContent='Enviado ✓';btn.disabled=true;btn.style.background='var(--red)';btn.style.color='var(--cream)';setTimeout(()=>{btn.textContent=orig;btn.disabled=false;btn.style.background='';btn.style.color='';form.reset();},3500);});}
 document.querySelectorAll('.project-card').forEach(card=>{card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;card.style.transform=`perspective(800px) rotateY(${x*3}deg) rotateX(${-y*2}deg)`;});card.addEventListener('mouseleave',()=>{card.style.transform='';});});
 </script>
-</body></html>
+</body>
+</html>
